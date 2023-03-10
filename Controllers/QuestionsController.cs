@@ -42,7 +42,7 @@ namespace QuestionBanksApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuestion(AddQuestionRequest addQuestionRequest)
         {
-            var question = new Answer
+            var question = new Question
             {
                 id = Guid.NewGuid(),
                 Content= addQuestionRequest.Content,

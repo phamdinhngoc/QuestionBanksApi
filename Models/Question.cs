@@ -11,5 +11,7 @@ namespace QuestionBanksApi.Models
         public string Content { get; set; }
         public int UserId { get; set; }
         public DateTime UpdateDate { get; set; }
+
+       public virtual ICollection<Answer> Answers { get; set; }
     }
 }

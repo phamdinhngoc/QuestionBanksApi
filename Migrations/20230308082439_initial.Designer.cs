@@ -10,7 +10,7 @@ using QuestionBanksApi.Data;
 namespace QuestionBanksApi.Migrations
 {
     [DbContext(typeof(QuestionBankAPIDbContext))]
-    [Migration("20230306215001_initial")]
+    [Migration("20230308082439_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,32 @@ namespace QuestionBanksApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("QuestionBanksApi.Models.Answer", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Correct")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("Question_Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Answer");
+                });
 
             modelBuilder.Entity("QuestionBanksApi.Models.Question", b =>
                 {
